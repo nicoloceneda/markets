@@ -54,6 +54,7 @@ def animate(i):
     ax.set_title(f'US Treasury Volatility on {df_vol_252.index[i].date()}')
     ax.set_xlabel('Maturity (Years)')
     ax.set_ylabel('Volatility (%)')
+    ax.legend(loc='upper left')
     ax.set_xlim([-0.5, 30.5])
     ax.set_ylim([0, 1.75])
     ax.grid(True)

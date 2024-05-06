@@ -44,12 +44,13 @@ def animate(i):
     y_fit = np.polyval(p, fine_maturities)
 
     ax.scatter(maturities, df_yields.iloc[i], marker='o', s=15, color='black', zorder=3)
-    ax.plot(fine_maturities, y_fit, label='Fitted Polynomial', color='tab:blue', zorder=2)
-    ax.hlines(df_fed_funds.iloc[i], -0.5, 30.5, linestyles='--', color='tab:orange', zorder=1)
+    ax.plot(fine_maturities, y_fit, label='Yields', color='tab:blue', zorder=2)
+    ax.hlines(df_fed_funds.iloc[i], -0.5, 30.5, label='Fed funds rate', linestyles='--', color='tab:orange', zorder=1)
 
     ax.set_title(f'US Treasury Term Structure on {df_yields.index[i].date()}')
     ax.set_xlabel('Maturity (Years)')
     ax.set_ylabel('Yield (%)')
+    ax.legend(loc='upper left')
     ax.set_xlim([-0.5, 30.5])
     ax.set_ylim([0, 8])
     ax.grid(True)
