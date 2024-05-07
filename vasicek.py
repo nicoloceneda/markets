@@ -53,12 +53,13 @@ for i in range(num_sims):
     ax.plot(t, r[i, :], linewidth=1, color='black', alpha=0.05)
 
 ax.plot(t, empirical_means, label='Empirical Mean', color='tab:blue', linewidth=1, zorder=5)
-ax.fill_between(t, empirical_ci_lower, empirical_ci_upper, color='tab:blue', alpha=0.4, label='Empirical 90% CI', zorder=3)
+ax.fill_between(t, empirical_ci_lower, empirical_ci_upper, color='tab:blue', alpha=0.3, label='Empirical 90% CI', zorder=3)
 
-ax.plot(t, theoretical_means, label='Theoretical Mean', color='tab:orange', linewidth=1, zorder=4)
-ax.fill_between(t, theoretical_ci_lower, theoretical_ci_upper, color='tab:orange', alpha=0.2, label='Theoretical 90% CI', zorder=2)
+ax.plot(t, theoretical_means, label='Theoretical Mean', linestyle='--', color='tab:orange', linewidth=1, zorder=2)
+ax.plot(t, theoretical_ci_lower, linestyle='--', color='tab:orange', linewidth=1, zorder=2)
+ax.plot(t, theoretical_ci_upper, linestyle='--', color='tab:orange', linewidth=1, zorder=2)
 
-ax.hlines(theta, 0, T, linewidth=1, linestyles='--', colors='black', label=r'$\Theta$', zorder=4)
+ax.hlines(theta, 0, T, linewidth=1, linestyles='--', colors='black', label=r'$\Theta$', zorder=2)
 ax.set_xlabel('Time')
 ax.set_ylabel('r(t)')
 ax.set_title('Vasicek Model')
