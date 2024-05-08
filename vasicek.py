@@ -15,7 +15,7 @@ num_sims = 100
 
 # Function to simulate the Vasicek model
 
-def vasicek(k, theta, sigma, r0, T, dt, N, num_sims):
+def vasicek(k, theta, sigma, r0, dt, N, num_sims):
 
     r = np.zeros((num_sims, N + 1))
     r[:, 0] = r0
