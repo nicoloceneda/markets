@@ -11,7 +11,7 @@ T = 5
 dt = 0.01
 N = int(T / dt)
 t = np.linspace(0, T, N + 1)
-num_sims = 25
+num_sims = 100
 
 # Function to simulate the Vasicek model
 
@@ -45,13 +45,9 @@ theoretical_std = np.sqrt((sigma**2 / (2 * k)) * (1 - np.exp(-2 * k * t)))
 theoretical_ci_upper = theoretical_means + 1.64 * theoretical_std
 theoretical_ci_lower = theoretical_means - 1.64 * theoretical_std
 
-# Plotting the paths and means with confidence intervals
+# Plotting the means with confidence intervals
 
 fig, ax = plt.subplots(figsize=(6, 4.5))
-
-for i in range(num_sims):
-
-    ax.plot(t, r[i, :], linewidth=1, color='black', alpha=0.05)
 
 ax.plot(t, empirical_means, label='Empirical Mean', color='tab:blue', linewidth=1, zorder=5)
 ax.fill_between(t, empirical_ci_lower, empirical_ci_upper, color='tab:blue', alpha=0.3, label='Empirical 90% CI', zorder=3)
