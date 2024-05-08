@@ -46,6 +46,7 @@ theoretical_ci_upper = theoretical_means + 1.64 * theoretical_std
 theoretical_ci_lower = theoretical_means - 1.64 * theoretical_std
 
 # Plotting the paths and means with confidence intervals
+
 fig, ax = plt.subplots(figsize=(6, 4.5))
 
 for i in range(num_sims):
@@ -63,9 +64,7 @@ ax.hlines(theta, 0, T, linewidth=1, linestyles='--', colors='black', label=r'$\T
 ax.set_xlabel('Time')
 ax.set_ylabel('r(t)')
 ax.set_title('Vasicek Model')
-#ax.legend(loc='upper left')
 ax.set_xlim([0, T])
-#ax.set_ylim([-0.03, 0.15])
 ax.grid(alpha=0.5, zorder=1)
 
 fig.tight_layout()
